@@ -1,4 +1,4 @@
-package com.example.G_Books.service.serImpl;
+package com.example.G_Books.service;
 
 import com.example.G_Books.repository.UserDao;
 import lombok.RequiredArgsConstructor;
@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class UserSrviceImpl implements UserDetailsService {
+public class UserSrvice implements UserDetailsService {
 
 
 
