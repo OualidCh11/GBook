@@ -3,6 +3,7 @@ package com.example.G_Books.webService;
 import com.example.G_Books.request.RegistrationRequest;
 import com.example.G_Books.service.AuthenticationServices;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.mail.MessagingException;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -21,7 +22,7 @@ public class AuthenticationWS {
     @ResponseStatus(HttpStatus.ACCEPTED)
     public ResponseEntity<?> register(
             @RequestBody @Valid RegistrationRequest registrationRequest
-    ){
+    ) throws MessagingException {
         authServices.register(registrationRequest);
         return ResponseEntity.accepted().build();
     }

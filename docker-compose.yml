@@ -3,8 +3,8 @@ services:
     container_name: postgres-book
     image: postgres
     environment:
-      POSTGRES_USER: username
-      POSTGRES_PASSWORD: password
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123
       PGDATA: /var/lib/postgressql/data
       POSTGRES_DB: books_db
     volumes:

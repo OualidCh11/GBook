@@ -1,22 +1,26 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/book_db
-    username: username
-    password: password
+    url: jdbc:postgresql://localhost:5432/books_db
+    username: postgres
+    password: 123
     driver-class-name: org.postgresql.Driver
 
   jpa:
+    open-in-view: false
     hibernate:
       ddl-auto: update
-    show-sql: false
+    show-sql: true
     properties:
       hibernate:
         format_sql: true
+        id:
+          new_generator_mappings: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
     database: postgresql
-    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
 
   mail:
-    host: localhostp
+    host: localhost
     port: 1025
     user: oualid
     password: 123
@@ -31,8 +35,24 @@ spring:
         timeout: 3000
         writetimeout: 5000
 
+  thymeleaf:
+    check-template-location: false
+
+
 application:
   security:
     jwt:
       secret-key: 9mGqO1QobBCo883MavuhHVg29OGJBuSi
       expiration: 864000
+  mailing:
+    frontend:
+      actication-url: http://localhost:4200/activate-account
+
+server:
+  port: 8088
+
+logging:
+  level:
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+
